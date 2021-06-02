@@ -13,7 +13,7 @@ module.exports = {
         filename: "js/[name].js",
         path: path.resolve(__dirname,"dist"),
     },
-    watch: false,
+    watch: true,
     watchOptions:{
         ignored: /node_modules/
     },
@@ -29,7 +29,10 @@ module.exports = {
                 use: [
                     /*"style-loader",*/
                     MiniCssExtractPlugin.loader,  /* Cambiar style-loader por este para tener archivos css */
-                    "css-loader",
+                    {
+                        loader: "css-loader",
+                        options: { url: false }
+                    },
                     "sass-loader"
                 ]
             }
@@ -43,7 +46,7 @@ module.exports = {
         new CopyPlugin({
             patterns: [                
                 // { from: path.resolve(__dirname,"src","tmpl"), to: "tmpl" },
-                // { from: path.resolve(__dirname,"src","libraries"), to: "libraries" },
+                { from: path.resolve(__dirname,"src","images"), to: "images" },
                 { from: "./src/index.html", to: "index.html" },
                 // { from: "./src/helper.php", to: "helper.php" },
                 // { from: "./src/getvideostream.php", to: "getvideostream.php" },
