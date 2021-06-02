@@ -1,0 +1,109 @@
+.fondo{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: url(https://picsum.photos/g/1921/1081?random) top center;
+    background-size: cover;
+    z-index: -1;
+
+    &--plano{
+        background: none;
+        background-color: wheat;
+    }
+}
+
+.bg-section{
+    height: 100vh;
+}
+
+section{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    overflow-y: hidden;
+
+    & .contenido{
+        color: white;
+        background-color: rgba(0,0,0,0.5);        
+
+        &--base{
+            width: 80%;
+            padding: 2em;    
+            border-radius: 15px;       
+            
+            & .contenido__titulo{
+                margin-bottom: .5em;
+            }
+
+            & .contenido__cta{
+                margin: 2em 0;
+            }
+        }
+
+        &--hero{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            & .contenido__titulo{                
+                text-transform: uppercase;
+            }
+
+            & .contenido__texto{
+                text-transform: uppercase;
+            }
+
+            & .contenido__cta{
+                display: none;
+            }
+        }
+    }
+
+    &.hero{        
+        height: 100vh;
+        z-index: 2;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .contenido__head-image{
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+        }
+    }
+
+    &.section01{
+        background-color: wheat;
+        padding: 20vh 0;
+        z-index: 4;
+    }
+
+    &.section02{
+        height: 100vh;
+        z-index: 2;
+    }
+
+    &.footer{
+        background-color: wheat;
+        padding:0;    
+        z-index: 4;   
+    }
+}
+
+h1{
+    padding: 0;
+    margin: 0;
+}
+
+.contenido__cta{
+    padding: .5em 1.25em;
+}
