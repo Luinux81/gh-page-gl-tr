@@ -7,7 +7,7 @@ module.exports = {
     mode: "development",
     entry: {
         main: "./src/js/main.js",
-        // vendors: "./src/js/vendors.js"
+        vendors: "./src/js/vendors.js"
     },
     output: {
         filename: "js/[name].js",
@@ -47,8 +47,8 @@ module.exports = {
             patterns: [                
                 // { from: path.resolve(__dirname,"src","tmpl"), to: "tmpl" },
                 { from: path.resolve(__dirname,"src","images"), to: "images" },
-                { from: "./src/index.html", to: "index.html" },
-                // { from: "./src/helper.php", to: "helper.php" },
+                { from: path.resolve(__dirname,"src","fonts"), to: "styles/fonts" },
+                { from: "./src/index.html", to: "index.html" },                
                 // { from: "./src/getvideostream.php", to: "getvideostream.php" },
                 // { from: "./src/mod_quantum_library.php", to: "mod_quantum_library.php" },
                 // { from: "./src/mod_quantum_library.xml", to: "mod_quantum_library.xml" },                

@@ -1,0 +1,87 @@
+.Menu{
+    font-size: 1.2em;
+}
+
+.Menu a{
+    margin:0 5px;
+    font-family: 'Architects Daughter';
+    text-transform: uppercase;
+}
+
+.Menu li > a:first-child{
+    transition: none;
+}
+
+.Menu ul.-visible{
+    border-radius: 18px;
+    border:2px solid black;
+    box-shadow: 1px 1px 5px rgba(0, 51, 128, 0.5);
+}
+
+.Menu.-horizontal > li{
+    margin-right: 1em;
+    border-radius: 18px;
+}
+
+.Menu li:hover > a:first-child{
+    border-radius: 18px;
+    background-color: rgba(40, 55, 194, 0.25);
+    //color: green;
+    display: block;
+    margin: 0 5px;
+    
+}
+
+.Menu li.-active > a:first-child{
+    //background-color: rgba(0,0,0,0);
+    color: green;
+    display: block;
+    margin: 0 5px;
+    border-radius: 18px;
+}
+
+
+.Icon, *[data-icon]:before {
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+
+    font-family: "materialicons";
+    font-size: 24px;
+    text-align: center;
+
+    content: attr(data-icon);
+
+    /* This is important for IE, which has it off by default */
+    font-feature-settings: "liga" 1;
+
+
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+  
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+  
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+.Icon.-small {
+    font-size: 18px;
+}
+
