@@ -9,45 +9,38 @@ window.luxy = luxy;
 
 window.addEventListener("load",function(e){
     
-    loadMenu('components/menus/menu1.html',activarTidyMenu);
+    loadComponent('components/menus/menu1.html', 'placeholder_header', activarTidyMenu);
 
-    loadLayout('components/layouts/parallax-luxy-1.html',()=>{luxy.init();})
+    loadComponent('components/layouts/parallax-luxy-1.html', 'main', ()=>{luxy.init();})
 });
 
-function loadMenu(url,callback){
+function loadComponent(url, target, callback){
     window.fetch(url)
         .then(response => response.text())
         .then(data => {
-            document.getElementById("placeholder_header").innerHTML = data;
-            callback();
+            let el = document.getElementById(target);
+            if(el !== undefined){
+                el.innerHTML = data;
+                callback();
+            }            
         });
 }
 
-function loadLayout(url,callback){
-    window.fetch('components/layouts/parallax-luxy-1.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById("main").innerHTML = data;
-            callback();
-        });    
-}
-
 window.componentLoader = function cargador(opciones){
-    console.log(opciones);
 
     switch(opciones.nav){
         case "menu1":
-            loadMenu('components/menus/menu1.html',activarTidyMenu);
+            loadComponent('components/menus/menu1.html', 'placeholder_header', activarTidyMenu);
             break;
 
         case "menu-test":
-            loadMenu('components/menus/menu-test.html',activarTidyMenu);
+            loadComponent('components/menus/menu-test.html', 'placeholder_header', activarTidyMenu);
             break;
     }
 
     switch(opciones.layout){
         case "parallax-luxy-1":
-            loadLayout('components/layouts/parallax-luxy-1.html',()=>{luxy.init();})
+            loadComponent('components/layouts/parallax-luxy-1.html', 'main', ()=>{luxy.init();})
             break;
     }
 
