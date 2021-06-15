@@ -5,6 +5,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
     mode: "development",
+    devtool: "inline-source-map", 
     entry: {
         main: "./src/js/main.js",
         vendors: "./src/js/vendors.js"
@@ -45,13 +46,10 @@ module.exports = {
         }),
         new CopyPlugin({
             patterns: [                
-                // { from: path.resolve(__dirname,"src","tmpl"), to: "tmpl" },
                 { from: path.resolve(__dirname,"src","images"), to: "images" },
                 { from: path.resolve(__dirname,"src","fonts"), to: "styles/fonts" },
-                { from: "./src/index.html", to: "index.html" },                
-                // { from: "./src/getvideostream.php", to: "getvideostream.php" },
-                // { from: "./src/mod_quantum_library.php", to: "mod_quantum_library.php" },
-                // { from: "./src/mod_quantum_library.xml", to: "mod_quantum_library.xml" },                
+                { from: path.resolve(__dirname,"src","components"), to: "components" },
+                { from: "./src/index.html", to: "index.html" },                             
             ],
         }),
     ],
