@@ -42,6 +42,10 @@
         setTimeout(function(){
             ul.classList.remove("-visible");
             ul.classList.remove("-animating");
+
+            if(menu.parent.classList.contains("Menu")){
+                ul.style.left = 0;
+            }
         }, 300);
     }
 
@@ -50,7 +54,7 @@
         forEach(
             $("li.-hasSubmenu.-active:not(:hover)", menu.parent),
             function(e){
-                e.hideMenu && e.hideMenu();
+                e.hideMenu && e.hideMenu();                
             }
         );
     }
@@ -74,12 +78,33 @@
         }
     }
 
+    function getOverflownPixels(el){
+        var rect         = el.getBoundingClientRect(),
+        viewport_width   = document.documentElement.clientWidth,
+        viewport_height  = document.documentElement.clientHeight,
+        element_x        = rect.left,
+        element_y        = rect.top,
+        element_width    = rect.width;
+
+        var diferencia = viewport_width - (element_x+element_width);
+        
+
+        return Math.abs(Math.round(diferencia));
+    }
+
     function reposicionaElemento(el,parent){
         //Miramos si el padre del elemento parent es el menu principal con la clase menu
 
         if(parent.parentElement.classList.contains("Menu")){
             // El elemento es submenu del menu principal            
-            el.style.left = "-" + el.offsetWidth/2 + "px";
+            // el.style.left = "-" + el.offsetWidth/2 + "px";
+
+            let outsidePixels = getOverflownPixels(el) + 40;
+            // outsidePixels = outsidePixels + (outsidePixels*0.2);
+            
+            console.log("Outside:",outsidePixels);            
+            
+            el.style.left = "-" + String(outsidePixels) + "px";
         }
         else{
             // El elemento NO es submenu del menu principal, posicionamos al otro lado del submenu padre
