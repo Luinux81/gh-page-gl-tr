@@ -43,7 +43,7 @@
             ul.classList.remove("-visible");
             ul.classList.remove("-animating");
 
-            if(menu.parent.classList.contains("Menu")){
+            if(menu.parentNode.classList.contains("Menu")){
                 ul.style.left = 0;
             }
         }, 300);
@@ -97,12 +97,10 @@
 
         if(parent.parentElement.classList.contains("Menu")){
             // El elemento es submenu del menu principal            
-            // el.style.left = "-" + el.offsetWidth/2 + "px";
-
             let outsidePixels = getOverflownPixels(el) + 40;
-            // outsidePixels = outsidePixels + (outsidePixels*0.2);
-            
-            console.log("Outside:",outsidePixels);            
+
+            // outsidePixels = outsidePixels + (outsidePixels*0.2);            
+            //console.log("Outside:",outsidePixels);            
             
             el.style.left = "-" + String(outsidePixels) + "px";
         }
