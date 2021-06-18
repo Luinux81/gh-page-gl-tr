@@ -26,6 +26,21 @@
             ul.classList.remove("-animating")
         }, 25);
 
+        // Reposicionamiento de elemento
+
+        // Subimos el z-index respecto a la ul superior
+        var zIndexBase = menu.parentNode.style.zIndex;
+
+        if(zIndexBase){            
+            ul.style.zIndex = zIndexBase + 10;
+        }
+        else{
+            zIndexBase = 0;
+            menu.parentNode.style.zIndex = zIndexBase;
+            ul.style.zIndex = 10;
+        }
+
+        // Ajustamos la posición si sale del viewport
         if(isElementOutOfViewport(ul)){
             reposicionaElemento(ul,menu);
         }
