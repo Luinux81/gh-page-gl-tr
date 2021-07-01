@@ -1,6 +1,6 @@
 import '../styles/main.scss';
 
-import { activarTidyMenu } from './vendors';
+import { activarTidyMenu, activarMMenuLight } from './vendors';
 
 var luxy = require('luxy.js');
 
@@ -9,7 +9,9 @@ window.luxy = luxy;
 
 window.addEventListener("load",function(e){
     
-    loadComponent('components/menus/menu1.html', 'placeholder_header', activarTidyMenu);
+    loadComponent('components/menus/menu1.html', 'placeholder_header--desktop', activarTidyMenu);
+
+    loadComponent('components/menus/menu-mobile-1.html', 'placeholder_header--mobile', activarMMenuLight);
 
     loadComponent('components/layouts/parallax-luxy-1.html', 'main', ()=>{luxy.init();})
 });
@@ -30,11 +32,17 @@ window.componentLoader = function cargador(opciones){
 
     switch(opciones.nav){
         case "menu1":
-            loadComponent('components/menus/menu1.html', 'placeholder_header', activarTidyMenu);
+            loadComponent('components/menus/menu1.html', 'placeholder_header--desktop', activarTidyMenu);
             break;
 
         case "menu-test":
-            loadComponent('components/menus/menu-test.html', 'placeholder_header', activarTidyMenu);
+            loadComponent('components/menus/menu-test.html', 'placeholder_header--desktop', activarTidyMenu);
+            break;
+    }
+
+    switch (opciones.navMobile){
+        case "menu-mobile-1":
+            loadComponent('components/menus/menu-mobile-1.html', 'placeholder_header--mobile', ()=>{});
             break;
     }
 
